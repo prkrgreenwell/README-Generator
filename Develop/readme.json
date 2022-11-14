@@ -1,0 +1,9 @@
+{
+	"title": "readme",
+	"description": "It will make a README file for you",
+	"installation": "just do it",
+	"usage": "Everyone can use it",
+	"contributing": "I used starter code",
+	"tests": "There are none",
+	"license": "MIT"
+}
