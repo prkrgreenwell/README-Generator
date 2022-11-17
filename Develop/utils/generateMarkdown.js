@@ -71,7 +71,9 @@ ${data.contributing}
 ${data.tests}
 
 ## Questions
- Contact ${data.github} on GitHub with any questions you may have
+ Contact [${data.github}](https://github.com/${
+    data.github
+  }) on GitHub with any questions you may have
 
 `;
 }
