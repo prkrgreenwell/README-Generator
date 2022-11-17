@@ -1,6 +1,8 @@
+/** @format */
+
 const inquirer = require("inquirer");
 const fs = require("fs");
-const compiler = require("./utils/generateMarkdown");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 const questions = [
   {
@@ -43,9 +45,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  console.log("here");
-  console.log(data);
-  fs.writeFile(fileName, JSON.stringify(data, null, "\t"), (err) =>
+  fs.writeFile(fileName, data, (err) =>
     err ? console.log(err) : console.log("Success!")
   );
 }
@@ -53,9 +53,12 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((data) => {
-    const filename = `./new_READMEs/${data.title.split(" ").join("_")}.md`;
-    const newData = JSON.parse(data);
-    console.log(data);
+    const filename = `./new_READMEs/${data.title
+      .split(" ")
+      .join("_")}_README.md`;
+
+    const newData = generateMarkdown(data);
+
     writeToFile(filename, newData);
   });
 }
